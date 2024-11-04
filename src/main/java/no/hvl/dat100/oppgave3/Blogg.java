@@ -99,7 +99,7 @@ public class Blogg {
 			
 		}
 		tekst = nesteledige +"\n"+ tekst;
-		System.out.print(tekst);
+		
 		return tekst;
 	}
 

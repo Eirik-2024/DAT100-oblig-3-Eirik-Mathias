@@ -37,13 +37,9 @@ public abstract class Innlegg {
 	
 	public String getBruker() {
 		return this.bruker;
-		
 
 	}
 
-	
-
-	
 
 	public void setBruker(String bruker) {
 		

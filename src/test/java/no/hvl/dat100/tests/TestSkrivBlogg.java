@@ -21,7 +21,7 @@ public class TestSkrivBlogg {
 		
 		Blogg samling = new Blogg();
 		
-		samling.leggTil(innlegg1);
+		samling.leggTil(innlegg1);	
 		samling.leggTil(innlegg2);
 		
 		assertTrue(SkrivBlogg.skriv(samling, MAPPE, FILNAVN));
