@@ -72,7 +72,12 @@ public abstract class Innlegg {
 	@Override
 	public String toString() {
 		
-		throw new UnsupportedOperationException(TODO.method());
+String str = "";
+        
+        str += id + "\n" + bruker + "\n" + dato + "\n" + likes + "\n";
+        
+        return str;
+		
 				
 	}
 	
