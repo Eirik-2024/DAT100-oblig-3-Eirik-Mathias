@@ -1,50 +1,106 @@
 package no.hvl.dat100.oppgave3;
 
 import no.hvl.dat100.common.TODO;
+
 import no.hvl.dat100.oppgave1.*;
+
 
 public class Blogg {
 
 	// TODO: objektvariable 
-
+	private Innlegg[]tabell;
+	private int nesteledige;
+	
+	
 	public Blogg() {
-		throw new UnsupportedOperationException(TODO.constructor("Blogg"));
+	
+		tabell = new Innlegg[20];
+		nesteledige = 0;
+	
 	}
 
 	public Blogg(int lengde) {
-		throw new UnsupportedOperationException(TODO.constructor("Blogg"));
+		
+		tabell = new Innlegg[lengde];
+		nesteledige = 0;
+		
 	}
 
 	public int getAntall() {
-		throw new UnsupportedOperationException(TODO.method());
+		return this.nesteledige;
 	}
 	
 	public Innlegg[] getSamling() {
-		throw new UnsupportedOperationException(TODO.method());
+		return tabell;
 
 	}
 	
 	public int finnInnlegg(Innlegg innlegg) {
 
-		throw new UnsupportedOperationException(TODO.method());
+		boolean funnet = false;
+		int pos = 0;
+		while (pos<this.nesteledige && !funnet ) {
+			
+			if(tabell[pos].erLik(innlegg)) {
+				funnet = true;
+				
+			}else {
+				pos++;
+			}
+			
+		}
+		if(funnet) {
+			return pos;
+		}
+		else {
+			return -1;
+		}
 	}
 
 	public boolean finnes(Innlegg innlegg) {
-		throw new UnsupportedOperationException(TODO.method());
+		boolean finnes = false;
+		
+		int pos = finnInnlegg(innlegg);
+		if(pos >= 0) {
+			finnes = true;
+		}
+		
+		return finnes;
+		
 	}
 
 	public boolean ledigPlass() {
-		throw new UnsupportedOperationException(TODO.method());
+	
+		if(this.nesteledige  < this.tabell.length) {
+			return true;
+		}
+			return false;
 
 	}
 	
 	public boolean leggTil(Innlegg innlegg) {
-
-		throw new UnsupportedOperationException(TODO.method());
+		
+		if(ledigPlass() && !finnes(innlegg)) {
+			
+			tabell[nesteledige] = innlegg;
+			nesteledige = nesteledige + 1;
+			return true;
+		}
+		else return false;
 	}
 	
 	public String toString() {
-		throw new UnsupportedOperationException(TODO.method());
+		int pos= 0;
+		String tekst = "";
+		
+		for(pos = 0; pos < tabell.length; pos++) {
+		
+		tekst = tekst + tabell[pos].toString();
+			
+		}
+		tekst = nesteledige +"\n"+ tekst;
+		System.out.print(tekst);
+		return tekst;
 	}
 
 	// valgfrie oppgaver nedenfor
@@ -69,4 +125,5 @@ public class Blogg {
 		throw new UnsupportedOperationException(TODO.method());
 
 	}
+
 }
